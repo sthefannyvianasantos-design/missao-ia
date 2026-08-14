@@ -25,10 +25,17 @@ function mostraPergunta() {
 
 function mostraAlternativas() {
   for (const alternativa of perguntaAtual.alternativas) {
-    const botaoAlternativas = document.createElement("button");
+    const botaoAlternativas = document.createElement("button");botao.addEventListener("click", () => respostaSelecionada(opcao));
     botaoAlternativas.textContent = alternativa;
     caixaAlternativas.appendChild(botaoAlternativas);
   }
+}
+
+function respostaSelecionada(opcaoSelecionada) {
+  const afirmacoes = opcaoSelecionada.afirmacoes;
+  historiaFinal += afirmacoes + " ";
+  atual++;
+  mostraPergunta();
 }
 
 mostraPergunta();
